@@ -4,6 +4,7 @@
 
 @section('content')
     <h1>Prodotti disponibili:</h1>
+    <a href="{{route('vestiti.create')}}" class="btn btn-primary">Nuovo Prodotto</a>
     <table class="table">
         <thead>
           <tr>

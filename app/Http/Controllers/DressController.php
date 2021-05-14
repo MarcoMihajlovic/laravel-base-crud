@@ -30,7 +30,7 @@ class DressController extends Controller
      */
     public function create()
     {
-        //
+        return view('dresses.create');
     }
 
     /**
@@ -41,7 +41,22 @@ class DressController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $new_Dress = new Dress();
+
+        $new_Dress -> fill($data);
+
+        /* $new_Dress -> name = $data['name'];
+        $new_Dress -> color = $data['color'];
+        $new_Dress -> size = $data['size'];
+        $new_Dress -> season = $data['season'];
+        $new_Dress -> description = $data['description'];
+        $new_Dress -> price = $data['price']; */
+
+        $new_Dress -> save();
+
+        return redirect() -> route('vestiti.index');
     }
 
     /**
