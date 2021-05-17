@@ -24,9 +24,16 @@
                 <td>{{$vestito -> color}}</td>
                 <td>{{$vestito -> size}}</td>
                 <td>{{$vestito -> description}}</td>
-                <td>
-                    <a class="btn btn-info" href="{{route('vestiti.show', ['vestiti' => $vestito -> id])}}">Dettagli</a>
-                    <a class="btn btn-warning" href="{{route('vestiti.edit', ['vestiti' => $vestito -> id])}}">Modifica</a>
+                <td style="display: flex">
+                    <a style="margin: 5px" class="btn btn-info" href="{{route('vestiti.show', ['vestiti' => $vestito -> id])}}">Dettagli</a>
+
+                    <a style="margin: 5px" class="btn btn-warning" href="{{route('vestiti.edit', ['vestiti' => $vestito -> id])}}">Modifica</a>
+
+                    <form action="{{route('vestiti.destroy', $vestito['id'])}}" method="post">
+                      @csrf
+                      @method('DELETE')
+                      <button style="margin: 5px" type="submit" class="btn btn-danger">Cancella</button>
+                    </form>
                 </td>
               </tr>
             @endforeach
