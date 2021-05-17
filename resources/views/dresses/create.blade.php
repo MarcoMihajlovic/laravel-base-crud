@@ -3,6 +3,16 @@
 @section('title', 'Nuovo Vestito')
 
 @section('content')
+
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     
     <form action="{{route('vestiti.store')}}" method="post">
         @csrf
@@ -22,7 +32,13 @@
         </div>
         <div class="form-group">
             <label for="season">Stagione:</label>
-            <input type="text" class="form-control" name="season" id="season">
+            <select name="season" id="season" class="form-control">
+                <option value="">Seleziona</option>
+                <option value="estivo">Estivo</option>
+                <option value="invernale">Invernale</option>
+                <option value="autunnale">Autunnale</option>
+                <option value="primaverile">Primaverile</option>
+            </select>
         </div>
         <div class="form-group">
             <label for="description">Descrizione:</label>

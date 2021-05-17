@@ -13,7 +13,7 @@
             <th scope="col">Colore</th>
             <th scope="col">Taglia</th>
             <th scope="col">Descrizione</th>
-            <th scope="col">Dettaglio</th>
+            <th scope="col">Azioni</th>
           </tr>
         </thead>
         <tbody>
@@ -26,6 +26,7 @@
                 <td>{{$vestito -> description}}</td>
                 <td>
                     <a class="btn btn-info" href="{{route('vestiti.show', ['vestiti' => $vestito -> id])}}">Dettagli</a>
+                    <a class="btn btn-warning" href="{{route('vestiti.edit', ['vestiti' => $vestito -> id])}}">Modifica</a>
                 </td>
               </tr>
             @endforeach
