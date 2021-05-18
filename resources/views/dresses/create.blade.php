@@ -20,15 +20,15 @@
 
         <div class="form-group">
             <label for="name">Nome:</label>
-            <input type="text" class="form-control" name="name" id="name">
+            <input type="text" class="form-control" name="name" id="name" value="{{old('name')}}">
         </div>
         <div class="form-group">
             <label for="color">Colore:</label>
-            <input type="text" class="form-control" name="color" id="color">
+            <input type="text" class="form-control" name="color" id="color" value="{{old('color')}}">
         </div>
         <div class="form-group">
             <label for="size">Taglia:</label>
-            <input type="text" class="form-control" name="size" id="size">
+            <input type="text" class="form-control" name="size" id="size" value="{{old('size')}}">
         </div>
         <div class="form-group">
             <label for="season">Stagione:</label>
@@ -42,11 +42,11 @@
         </div>
         <div class="form-group">
             <label for="description">Descrizione:</label>
-            <input type="text" class="form-control" name="description" id="description">
+            <input type="text" class="form-control" name="description" id="description" value="{{old('description')}}">
         </div>
         <div class="form-group">
             <label for="price">Prezzo:</label>
-            <input type="number" class="form-control" name="price" id="price">
+            <input type="number" class="form-control" name="price" id="price" value="{{old('price')}}">
         </div>
         
         <button type="submit" class="btn btn-default">Inserisci</button>

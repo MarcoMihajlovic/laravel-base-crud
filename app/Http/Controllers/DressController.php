@@ -7,6 +7,20 @@ use App\Dress;
 
 class DressController extends Controller
 {
+    protected function valida($request) {
+       
+        $request->validate([
+            'name' => 'required|unique:dresses|max:255',
+            'color' => 'required|max:20',
+            'size' => 'required|max:4',
+            'season' => 'required|max:255',
+            'description' => 'required',
+            'price' => 'required|numeric'
+        ]);
+
+    } 
+
+
     /**
      * Display a listing of the resource.
      *
@@ -43,14 +57,7 @@ class DressController extends Controller
     {
         $data = $request->all();
 
-        $request->validate([
-            'name' => 'required|unique:dresses!max:255',
-            'color' => 'required|max:20',
-            'size' => 'required|max:4',
-            'season' => 'required|max:255',
-            'description' => 'required',
-            'price' => 'required|numeric'
-        ]);
+        $this -> valida($request);
 
         $new_Dress = new Dress();
 
@@ -123,6 +130,6 @@ class DressController extends Controller
     public function destroy(Dress $vestiti)
     {
         $vestiti -> delete();
-        return redirect() -> route('vestiti.index');
+        return redirect() -> route('vestiti.index') -> with('status', 'Vestito Cancellato');
     }
 }

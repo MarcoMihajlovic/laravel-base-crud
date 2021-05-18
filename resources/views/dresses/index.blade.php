@@ -3,7 +3,15 @@
 @section('title', 'Vestiti')
 
 @section('content')
+
     <h1>Prodotti disponibili:</h1>
+
+    @if (session('status'))
+      <div class="alert alert-success">
+        {{session('status')}}
+      </div>
+    @endif
+
     <a href="{{route('vestiti.create')}}" class="btn btn-primary">Nuovo Prodotto</a>
     <table class="table">
         <thead>
